@@ -30,6 +30,7 @@
 
 body{
   min-height:100vh;
+
   background:
     radial-gradient(
       circle at 50% 20%,
@@ -37,37 +38,45 @@ body{
       #0b091a 55%,
       #05040d 100%
     );
+
   color:white;
+
   display:flex;
   justify-content:center;
   align-items:center;
+
   overflow-x:hidden;
 }
 
-button,
-a{
-  -webkit-tap-highlight-color:transparent;
-}
+/* =========================
+   الخلفية
+========================= */
 
 .background{
   position:fixed;
   inset:0;
   pointer-events:none;
   overflow:hidden;
-  z-index:1;
+  z-index:0;
 }
 
 .heart{
   position:absolute;
   bottom:-50px;
-  animation:floatUp linear infinite;
+
+  animation:
+    floatUp linear infinite;
+
   opacity:.6;
 }
 
 @keyframes floatUp{
 
   from{
-    transform:translateY(0) rotate(0deg);
+    transform:
+      translateY(0)
+      rotate(0deg);
+
     opacity:0;
   }
 
@@ -76,40 +85,65 @@ a{
   }
 
   to{
-    transform:translateY(-115vh) rotate(360deg);
+    transform:
+      translateY(-115vh)
+      rotate(360deg);
+
     opacity:0;
   }
 
 }
 
+/* =========================
+   الحاوية
+========================= */
+
 .container{
+
   position:relative;
+
   z-index:5;
+
   width:92%;
   max-width:680px;
+
   margin:20px auto;
+
   padding:25px;
+
   border-radius:25px;
 
-  background:rgba(255,255,255,.055);
+  background:
+    rgba(255,255,255,.055);
 
-  border:1px solid rgba(255,255,255,.13);
+  border:
+    1px solid rgba(255,255,255,.13);
 
   backdrop-filter:blur(18px);
+
   -webkit-backdrop-filter:blur(18px);
 
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.6);
 
   text-align:center;
 }
+
+/* =========================
+   الصفحات
+========================= */
 
 .step{
   display:none;
 }
 
 .step.active{
+
   display:block;
-  animation:fadeIn .7s ease;
+
+  animation:
+    fadeIn .7s ease;
+
 }
 
 @keyframes fadeIn{
@@ -126,30 +160,46 @@ a{
 
 }
 
+/* =========================
+   العناوين
+========================= */
+
 .title{
+
   font-family:'Amiri',serif;
+
   font-size:2.3rem;
+
   margin-bottom:10px;
 
   text-shadow:
     0 0 20px rgba(255,77,109,.7);
+
 }
 
 .subtitle{
+
   color:#bfc5ff;
+
   line-height:1.8;
+
   margin-bottom:25px;
+
 }
 
-/* المصباح */
+/* =========================
+   المصباح
+========================= */
 
 .light{
+
   width:110px;
   height:110px;
 
   border-radius:50%;
 
-  border:2px solid rgba(255,255,255,.35);
+  border:
+    2px solid rgba(255,255,255,.35);
 
   background:
     linear-gradient(
@@ -165,6 +215,7 @@ a{
   cursor:pointer;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -181,14 +232,23 @@ a{
 }
 
 .light:hover{
+
   transform:scale(1.06);
+
+  box-shadow:
+    0 0 55px rgba(255,77,109,.9);
+
 }
 
 .light:active{
+
   transform:scale(.9);
+
 }
 
-/* الأزرار */
+/* =========================
+   الأزرار
+========================= */
 
 .btn{
 
@@ -229,9 +289,12 @@ a{
 
   border:
     1px solid rgba(255,255,255,.3);
+
 }
 
-/* العداد */
+/* =========================
+   العداد
+========================= */
 
 .counter{
 
@@ -243,6 +306,7 @@ a{
   gap:8px;
 
   margin:20px 0;
+
 }
 
 .counter div{
@@ -256,6 +320,7 @@ a{
   border-radius:12px;
 
   padding:10px 4px;
+
 }
 
 .number{
@@ -265,6 +330,7 @@ a{
   font-size:1.4rem;
 
   font-weight:bold;
+
 }
 
 .label{
@@ -272,9 +338,12 @@ a{
   color:#aaa;
 
   font-size:.7rem;
+
 }
 
-/* القصة */
+/* =========================
+   القصة
+========================= */
 
 .story{
 
@@ -295,6 +364,7 @@ a{
 
   border:
     1px solid rgba(255,255,255,.08);
+
 }
 
 .quote{
@@ -311,9 +381,12 @@ a{
   font-size:1.05rem;
 
   margin:18px 0;
+
 }
 
-/* التنقل */
+/* =========================
+   التنقل
+========================= */
 
 .navigation{
 
@@ -326,13 +399,17 @@ a{
   gap:10px;
 
   margin-top:15px;
+
 }
 
-/* الصور */
+/* =========================
+   الصور
+========================= */
 
 .gallery{
 
   text-align:center;
+
 }
 
 .photo{
@@ -356,6 +433,7 @@ a{
   display:block;
 
   margin:0 auto 15px;
+
 }
 
 .caption{
@@ -365,9 +443,12 @@ a{
   line-height:1.7;
 
   margin-bottom:12px;
+
 }
 
-/* الأغنية */
+/* =========================
+   الأغنية
+========================= */
 
 .song{
 
@@ -380,20 +461,20 @@ a{
 
   background:
     rgba(255,77,109,.08);
+
 }
 
-.song-status{
+.music-player{
+
+  width:100%;
 
   margin-top:20px;
 
-  color:#ffd166;
-
-  font-size:.9rem;
-
-  line-height:1.8;
 }
 
-/* الهدية */
+/* =========================
+   الهدية
+========================= */
 
 .gift{
 
@@ -413,9 +494,12 @@ a{
 .gift:active{
 
   transform:scale(.9);
+
 }
 
-/* شريط الحب */
+/* =========================
+   شريط الحب
+========================= */
 
 .lovebar{
 
@@ -429,6 +513,7 @@ a{
   overflow:hidden;
 
   margin:15px 0;
+
 }
 
 .lovefill{
@@ -446,9 +531,12 @@ a{
 
   transition:
     width 2s ease;
+
 }
 
-/* زر الموسيقى */
+/* =========================
+   زر الموسيقى العائم
+========================= */
 
 .audio-btn{
 
@@ -466,63 +554,75 @@ a{
 
   border-radius:30px;
 
-  padding:9px 16px;
+  padding:8px 15px;
 
   color:white;
 
   background:
     rgba(255,77,109,.25);
 
-  backdrop-filter:blur(10px);
-
-  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(8px);
 
   cursor:pointer;
-
-  box-shadow:
-    0 4px 15px rgba(0,0,0,.3);
 
   touch-action:manipulation;
 }
 
 .audio-btn:active{
 
-  transform:scale(.94);
+  transform:scale(.95);
+
 }
 
-/* الهاتف */
+/* =========================
+   الهاتف
+========================= */
 
 @media(max-width:500px){
 
   .container{
+
     padding:18px;
+
   }
 
   .title{
+
     font-size:1.9rem;
+
   }
 
   .counter{
+
     gap:5px;
+
   }
 
   .number{
+
     font-size:1.1rem;
+
   }
 
   .photo{
+
     height:270px;
+
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<!-- الخلفية -->
+
+<!-- =========================
+     الخلفية
+========================= -->
 
 <div
   class="background"
@@ -540,20 +640,22 @@ a{
   preload="auto">
 
   <source
-    src="music/Albumaty.Com_rashd_alfars__hza_alywm.mp3"
+    src="Albumaty.Com_rashd_alfars__hza_alywm.mp3"
     type="audio/mpeg">
 
 </audio>
 
 
-<!-- زر التحكم بالموسيقى -->
+<!-- =========================
+     زر الموسيقى
+========================= -->
 
 <button
   class="audio-btn"
   id="musicButton"
   type="button">
 
-  🎵 تشغيل الأغنية
+  🎵 إيقاف الأغنية
 
 </button>
 
@@ -565,7 +667,9 @@ a{
 <div class="container">
 
 
-<!-- البداية -->
+<!-- =========================
+     البداية
+========================= -->
 
 <section
   class="step active"
@@ -576,6 +680,7 @@ a{
     إلى نِداء قلبي.. 💕
 
   </h1>
+
 
   <p class="subtitle">
 
@@ -616,6 +721,7 @@ a{
   class="step"
   id="step2">
 
+
   <h2
     class="title"
     style="font-size:1.8rem">
@@ -637,6 +743,7 @@ a{
 
   <div class="counter">
 
+
     <div>
 
       <div
@@ -648,9 +755,7 @@ a{
       </div>
 
       <div class="label">
-
         يوم
-
       </div>
 
     </div>
@@ -667,9 +772,7 @@ a{
       </div>
 
       <div class="label">
-
         ساعة
-
       </div>
 
     </div>
@@ -686,9 +789,7 @@ a{
       </div>
 
       <div class="label">
-
         دقيقة
-
       </div>
 
     </div>
@@ -705,17 +806,16 @@ a{
       </div>
 
       <div class="label">
-
         ثانية
-
       </div>
 
     </div>
 
+
   </div>
 
 
-  <!-- القصة -->
+  <!-- محتوى الفصل -->
 
   <div
     class="story"
@@ -723,9 +823,10 @@ a{
   </div>
 
 
-  <!-- التنقل -->
+  <!-- أزرار التنقل -->
 
   <div class="navigation">
+
 
     <button
       class="btn secondary"
@@ -753,7 +854,9 @@ a{
 
     </button>
 
+
   </div>
+
 
 </section>
 
@@ -765,6 +868,7 @@ a{
 <section
   class="step"
   id="step3">
+
 
   <h2 class="title">
 
@@ -803,29 +907,38 @@ a{
     id="finalMessage"
     style="display:none">
 
+
     <div
       class="story"
       style="text-align:center">
 
+
       <p style="line-height:2">
 
+
         في الختام..
+
         أحبكِ ندائي،
+
         وأتمنى في هذا اليوم
         أن تكوني في أتم الصحة والعافية،
-        وأن يجمعني الله بكِ في خير وعلى خير.
+        وأن يجمعني الله بكِ
+        في خير وعلى خير.
+
 
         <br><br>
+
 
         <strong
           style="
             color:var(--gold);
-            font-size:1.3rem
+            font-size:1.3rem;
           ">
 
           وداعاً حبيبي 🤍
 
         </strong>
+
 
       </p>
 
@@ -833,7 +946,7 @@ a{
       <p
         style="
           color:var(--gold);
-          margin-top:20px
+          margin-top:20px;
         ">
 
         مستوى الحب الدائم 💕
@@ -852,7 +965,9 @@ a{
 
 
       <div
-        style="font-size:1.8rem">
+        style="
+          font-size:1.8rem;
+        ">
 
         💐 🌹 🌸 🌺 🌷 🌻
 
@@ -868,20 +983,23 @@ a{
 
       </button>
 
+
     </div>
 
   </div>
 
+
 </section>
+
 
 </div>
 
 
 <script>
 
-/* ==========================================
+/* ==================================================
    الصور
-========================================== */
+================================================== */
 
 const images = [
 
@@ -892,6 +1010,7 @@ const images = [
     caption:
       "اعذريني ولكني أحب هذه الصورة جداً وفوق ما تتصوري. 💕"
   },
+
 
   {
     url:
@@ -904,11 +1023,12 @@ const images = [
 ];
 
 
-/* ==========================================
+/* ==================================================
    الفصول
-========================================== */
+================================================== */
 
 const chapters = [
+
 
 `
 في مثل هذا اليوم ولد أحمد وأشرقت شمسه،
@@ -925,8 +1045,8 @@ const chapters = [
 تعلمت الحب، الاهتمام، الشعور، والإحساس.
 `,
 
-`
 
+`
 في مثل هذا اليوم وفي تمام الساعة
 1:55 بعد منتصف الليل،
 كان أحمد في صراع بين قلبه وعقله.
@@ -963,9 +1083,12 @@ const chapters = [
 حتى أتى هذا اليوم.
 `,
 
+
 "gallery",
 
+
 "songs",
+
 
 `
 طالما شبهتكِ بالسحر،
@@ -995,6 +1118,7 @@ const chapters = [
 </div>
 `,
 
+
 `
 وأخيراً وليس آخراً،
 أريد أن أستغل هذا اليوم وهذه اللحظة لأقول لكِ:
@@ -1019,22 +1143,20 @@ const chapters = [
 ];
 
 
-/* ==========================================
+/* ==================================================
    المتغيرات
-========================================== */
+================================================== */
 
 let currentChapter = 0;
 
 let imageIndex = 0;
 
-let counterTimer = null;
-
-let isPlaying = false;
+let counterStarted = false;
 
 
-/* ==========================================
+/* ==================================================
    العناصر
-========================================== */
+================================================== */
 
 const step1 =
   document.getElementById("step1");
@@ -1045,34 +1167,42 @@ const step2 =
 const step3 =
   document.getElementById("step3");
 
+
 const story =
   document.getElementById("story");
+
 
 const startButton =
   document.getElementById("startButton");
 
+
 const nextButton =
   document.getElementById("next");
+
 
 const previousButton =
   document.getElementById("previous");
 
+
 const chapterNumber =
   document.getElementById("chapter");
+
 
 const gift =
   document.getElementById("gift");
 
+
 const musicButton =
   document.getElementById("musicButton");
+
 
 const bgMusic =
   document.getElementById("bgMusic");
 
 
-/* ==========================================
+/* ==================================================
    بدء الحكاية
-========================================== */
+================================================== */
 
 startButton.addEventListener(
   "click",
@@ -1086,48 +1216,41 @@ function startExperience(){
 
   step2.classList.add("active");
 
-  musicButton.style.display = "block";
+
+  musicButton.style.display =
+    "block";
+
 
   renderChapter();
 
-  startCounter();
+
+  if(!counterStarted){
+
+    startCounter();
+
+    counterStarted = true;
+
+  }
+
 
   createHearts();
 
+
   /*
-     مهم جداً:
-     تشغيل الأغنية يحدث بسبب ضغطة المستخدم
-     على المصباح، لذلك المتصفح يسمح بتشغيلها.
+    تشغيل الموسيقى بعد ضغط المستخدم
+    على المصباح.
   */
 
-  playMusic();
-
-}
-
-
-/* ==========================================
-   تشغيل الموسيقى
-========================================== */
-
-function playMusic(){
+  bgMusic.volume = 0.5;
 
   bgMusic.play()
     .then(function(){
-
-      isPlaying = true;
 
       musicButton.textContent =
         "🔊 إيقاف الأغنية";
 
     })
-    .catch(function(error){
-
-      console.log(
-        "تعذر تشغيل الأغنية:",
-        error
-      );
-
-      isPlaying = false;
+    .catch(function(){
 
       musicButton.textContent =
         "🎵 تشغيل الأغنية";
@@ -1137,51 +1260,23 @@ function playMusic(){
 }
 
 
-/* ==========================================
-   إيقاف الموسيقى
-========================================== */
-
-function pauseMusic(){
-
-  bgMusic.pause();
-
-  isPlaying = false;
-
-  musicButton.textContent =
-    "🎵 تشغيل الأغنية";
-
-}
-
-
-/* ==========================================
-   زر الموسيقى
-========================================== */
-
-musicButton.addEventListener(
-  "click",
-  function(){
-
-    if(isPlaying){
-
-      pauseMusic();
-
-    }else{
-
-      playMusic();
-
-    }
-
-  }
-);
-
-
-/* ==========================================
+/* ==================================================
    عرض الفصل
-========================================== */
+================================================== */
 
 function renderChapter(){
 
-  if(chapters[currentChapter] === "gallery"){
+
+  const chapter =
+    chapters[currentChapter];
+
+
+  /* =========================
+     معرض الصور
+  ========================= */
+
+  if(chapter === "gallery"){
+
 
     story.innerHTML = `
 
@@ -1190,7 +1285,7 @@ function renderChapter(){
         <h3
           style="
             color:var(--gold);
-            margin-bottom:15px
+            margin-bottom:15px;
           ">
 
           معرض ذكرياتنا 💕
@@ -1229,13 +1324,14 @@ function renderChapter(){
             color:#999;
             font-size:.85rem;
             margin-top:15px;
-            line-height:1.7
+            line-height:1.7;
           ">
 
           أعتذر ولكن ليس لدي صور لك كثيراً،
           فقط هاتين الصورتين هما ما في جعبتي 🤍
 
         </p>
+
 
       </div>
 
@@ -1249,17 +1345,25 @@ function renderChapter(){
         nextPhoto
       );
 
+
   }
 
 
-  else if(chapters[currentChapter] === "songs"){
+  /* =========================
+     الأغنية
+  ========================= */
+
+  else if(chapter === "songs"){
+
 
     story.innerHTML = `
 
       <div class="song">
 
         <h3
-          style="color:var(--gold)">
+          style="
+            color:var(--gold);
+          ">
 
           أغنيتنا 💕🎵
 
@@ -1269,52 +1373,84 @@ function renderChapter(){
         <p
           style="
             line-height:1.8;
-            margin-top:15px
+            margin-top:15px;
           ">
 
-          هذا اليوم.. أغنية أردت أن تكون جزءاً
-          من هذه الحكاية.
+          هذه الأغنية أردت أن تكون
+          جزءاً من هذه الحكاية،
+          ولذلك أصبحت تعمل في الخلفية
+          أثناء رحلتك هنا. ❤️
 
         </p>
 
 
-        <div class="song-status">
+        <button
+          class="btn"
+          id="songPlayButton"
+          type="button">
 
-          🎵 الأغنية تعمل في الخلفية أثناء الحكاية
+          🎵 تشغيل / إيقاف الأغنية
 
-          <br>
+        </button>
 
-          يمكنك التحكم بها من الزر الموجود
-          أعلى الصفحة.
 
-        </div>
+        <p
+          style="
+            color:#999;
+            font-size:.8rem;
+            margin-top:15px;
+          ">
+
+          يمكنك التحكم بالأغنية
+          من الزر الموجود أعلى الصفحة أيضاً.
+
+        </p>
+
 
       </div>
 
     `;
 
+
+    document
+      .getElementById("songPlayButton")
+      .addEventListener(
+        "click",
+        toggleMusic
+      );
+
   }
 
+
+  /* =========================
+     الفصول العادية
+  ========================= */
 
   else{
 
     story.innerHTML =
-      chapters[currentChapter];
+      chapter;
 
   }
 
 
-  chapterNumber.textContent =
-    (currentChapter + 1) +
-    " / " +
-    chapters.length;
+  /* رقم الفصل */
 
+  chapterNumber.textContent =
+    (currentChapter + 1)
+    + " / "
+    + chapters.length;
+
+
+  /* زر السابق */
 
   previousButton.style.visibility =
     currentChapter === 0
       ? "hidden"
       : "visible";
 
+
+  /* زر التالي */
 
   nextButton.textContent =
     currentChapter === chapters.length - 1
@@ -1324,47 +1460,57 @@ function renderChapter(){
 }
 
 
-/* ==========================================
+/* ==================================================
    الصور
-========================================== */
+================================================== */
 
 function nextPhoto(){
 
+
   imageIndex =
-    (imageIndex + 1) %
-    images.length;
+    (imageIndex + 1)
+    % images.length;
 
 
-  document
-    .getElementById("mainPhoto")
-    .src =
-      images[imageIndex].url;
+  const photo =
+    document.getElementById("mainPhoto");
 
 
-  document
-    .getElementById("photoCaption")
-    .textContent =
-      images[imageIndex].caption;
+  const caption =
+    document.getElementById("photoCaption");
+
+
+  photo.src =
+    images[imageIndex].url;
+
+
+  caption.textContent =
+    images[imageIndex].caption;
 
 }
 
 
-/* ==========================================
+/* ==================================================
    التالي
-========================================== */
+================================================== */
 
 nextButton.addEventListener(
   "click",
   function(){
+
 
     if(
       currentChapter ===
       chapters.length - 1
     ){
 
-      step2.classList.remove("active");
+      step2.classList.remove(
+        "active"
+      );
 
-      step3.classList.add("active");
+      step3.classList.add(
+        "active"
+      );
 
       return;
 
@@ -1373,19 +1519,21 @@ nextButton.addEventListener(
 
     currentChapter++;
 
+
     renderChapter();
 
   }
 );
 
 
-/* ==========================================
+/* ==================================================
    السابق
-========================================== */
+================================================== */
 
 previousButton.addEventListener(
   "click",
   function(){
+
 
     if(currentChapter > 0){
 
@@ -1399,24 +1547,66 @@ previousButton.addEventListener(
 );
 
 
-/* ==========================================
+/* ==================================================
+   الموسيقى
+================================================== */
+
+function toggleMusic(){
+
+
+  if(bgMusic.paused){
+
+    bgMusic.play()
+      .then(function(){
+
+        musicButton.textContent =
+          "🔊 إيقاف الأغنية";
+
+      });
+
+  }
+
+  else{
+
+    bgMusic.pause();
+
+    musicButton.textContent =
+      "🎵 تشغيل الأغنية";
+
+  }
+
+}
+
+
+musicButton.addEventListener(
+  "click",
+  toggleMusic
+);
+
+
+/* ==================================================
    الهدية
-========================================== */
+================================================== */
 
 gift.addEventListener(
   "click",
   function(){
 
-    gift.textContent = "🎉";
+
+    gift.textContent =
+      "🎉";
+
 
     document
       .getElementById("giftHint")
-      .style.display = "none";
+      .style.display =
+      "none";
 
 
     document
       .getElementById("finalMessage")
-      .style.display = "block";
+      .style.display =
+      "block";
 
 
     setTimeout(
@@ -1424,7 +1614,8 @@ gift.addEventListener(
 
         document
           .getElementById("love")
-          .style.width = "100%";
+          .style.width =
+          "100%";
 
       },
       100
@@ -1434,9 +1625,9 @@ gift.addEventListener(
 );
 
 
-/* ==========================================
+/* ==================================================
    إعادة التشغيل
-========================================== */
+================================================== */
 
 document
   .getElementById("restart")
@@ -1444,141 +1635,5 @@ document
     "click",
     function(){
 
-      currentChapter = 0;
 
-      imageIndex = 0;
-
-
-      step3.classList.remove(
-        "active"
-      );
-
-      step1.classList.add(
-        "active"
-      );
-
-
-      document
-        .getElementById("gift")
-        .textContent = "🎁";
-
-
-      document
-        .getElementById("giftHint")
-        .style.display = "block";
-
-
-      document
-        .getElementById("finalMessage")
-        .style.display = "none";
-
-
-      document
-        .getElementById("love")
-        .style.width = "0";
-
-
-      musicButton.style.display =
-        "none";
-
-
-      /*
-         إيقاف الموسيقى عند إعادة
-         تشغيل الحكاية.
-      */
-
-      bgMusic.pause();
-
-      bgMusic.currentTime = 0;
-
-      isPlaying = false;
-
-
-      if(counterTimer){
-
-        clearInterval(counterTimer);
-
-        counterTimer = null;
-
-      }
-
-    }
-  );
-
-
-/* ==========================================
-   العداد
-========================================== */
-
-function startCounter(){
-
-  if(counterTimer){
-
-    clearInterval(counterTimer);
-
-  }
-
-
-  const start =
-    new Date(
-      "2024-08-13T01:55:00"
-    );
-
-
-  function update(){
-
-    const now =
-      new Date();
-
-
-    const diff =
-      now - start;
-
-
-    if(diff < 0){
-
-      return;
-
-    }
-
-
-    document
-      .getElementById("days")
-      .textContent =
-        Math.floor(
-          diff / 86400000
-        );
-
-
-    document
-      .getElementById("hours")
-      .textContent =
-        Math.floor(
-          diff / 3600000
-        ) % 24;
-
-
-    document
-      .getElementById("minutes")
-      .textContent =
-        Math.floor(
-          diff / 60000
-        ) % 60;
-
-
-    document
-      .getElementById("seconds")
-      .textContent =
-        Math.floor(
-          diff / 1000
-        ) % 60;
-
-  }
-
-
-  update();
-
-
-  counterTimer =
-    setInterval(
-      
+   
