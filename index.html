@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --primary:#ff4d6d;
   --secondary:#c77dff;
@@ -29,7 +31,12 @@
 body{
   min-height:100vh;
   background:
-    radial-gradient(circle at 50% 20%,#210c3d 0%,#0b091a 55%,#05040d 100%);
+    radial-gradient(
+      circle at 50% 20%,
+      #210c3d 0%,
+      #0b091a 55%,
+      #05040d 100%
+    );
   color:white;
   display:flex;
   justify-content:center;
@@ -37,11 +44,17 @@ body{
   overflow-x:hidden;
 }
 
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
 .background{
   position:fixed;
   inset:0;
   pointer-events:none;
   overflow:hidden;
+  z-index:1;
 }
 
 .heart{
@@ -52,15 +65,21 @@ body{
 }
 
 @keyframes floatUp{
+
   from{
     transform:translateY(0) rotate(0deg);
     opacity:0;
   }
-  20%{opacity:.7}
+
+  20%{
+    opacity:.7;
+  }
+
   to{
     transform:translateY(-115vh) rotate(360deg);
     opacity:0;
   }
+
 }
 
 .container{
@@ -71,10 +90,16 @@ body{
   margin:20px auto;
   padding:25px;
   border-radius:25px;
+
   background:rgba(255,255,255,.055);
+
   border:1px solid rgba(255,255,255,.13);
+
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
   box-shadow:0 20px 60px rgba(0,0,0,.6);
+
   text-align:center;
 }
 
@@ -88,21 +113,26 @@ body{
 }
 
 @keyframes fadeIn{
+
   from{
     opacity:0;
     transform:translateY(15px);
   }
+
   to{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 .title{
   font-family:'Amiri',serif;
   font-size:2.3rem;
   margin-bottom:10px;
-  text-shadow:0 0 20px rgba(255,77,109,.7);
+
+  text-shadow:
+    0 0 20px rgba(255,77,109,.7);
 }
 
 .subtitle{
@@ -111,179 +141,359 @@ body{
   margin-bottom:25px;
 }
 
+/* المصباح */
+
 .light{
   width:110px;
   height:110px;
+
   border-radius:50%;
+
   border:2px solid rgba(255,255,255,.35);
-  background:linear-gradient(145deg,#ff4d6d,#7c0020);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff4d6d,
+      #7c0020
+    );
+
   color:white;
+
   font-size:3rem;
+
   cursor:pointer;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   margin:30px auto;
-  box-shadow:0 0 35px rgba(255,77,109,.6);
+
+  box-shadow:
+    0 0 35px rgba(255,77,109,.6);
+
   transition:.2s;
+
   -webkit-tap-highlight-color:transparent;
+
+  touch-action:manipulation;
+}
+
+.light:hover{
+  transform:scale(1.06);
 }
 
 .light:active{
   transform:scale(.9);
 }
 
+/* الأزرار */
+
 .btn{
+
   border:none;
+
   border-radius:50px;
+
   padding:12px 25px;
+
   margin-top:15px;
+
   color:white;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--secondary)
+    );
+
   font-size:1rem;
+
   cursor:pointer;
-  box-shadow:0 5px 20px rgba(255,77,109,.3);
+
+  box-shadow:
+    0 5px 20px rgba(255,77,109,.3);
+
+  touch-action:manipulation;
+}
+
+.btn:active{
+  transform:scale(.96);
 }
 
 .secondary{
+
   background:transparent;
-  border:1px solid rgba(255,255,255,.3);
+
+  border:
+    1px solid rgba(255,255,255,.3);
 }
 
+/* العداد */
+
 .counter{
+
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:8px;
+
   margin:20px 0;
 }
 
 .counter div{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
+
+  background:
+    rgba(255,255,255,.05);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
   border-radius:12px;
+
   padding:10px 4px;
 }
 
 .number{
+
   color:var(--gold);
+
   font-size:1.4rem;
+
   font-weight:bold;
 }
 
 .label{
+
   color:#aaa;
+
   font-size:.7rem;
 }
 
+/* القصة */
+
 .story{
+
   text-align:right;
+
   line-height:2;
+
   font-size:1.02rem;
-  background:rgba(5,4,20,.55);
+
+  background:
+    rgba(5,4,20,.55);
+
   border-radius:17px;
+
   padding:22px;
+
   min-height:230px;
-  border:1px solid rgba(255,255,255,.08);
+
+  border:
+    1px solid rgba(255,255,255,.08);
 }
 
 .quote{
-  border-right:3px solid var(--gold);
+
+  border-right:
+    3px solid var(--gold);
+
   padding-right:12px;
+
   color:#ffe3a8;
+
   font-family:'Amiri',serif;
+
   font-size:1.05rem;
+
   margin:18px 0;
 }
 
+/* التنقل */
+
 .navigation{
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:10px;
+
   margin-top:15px;
 }
 
+/* الصور */
+
 .gallery{
+
   text-align:center;
 }
 
 .photo{
+
   width:100%;
+
   max-width:320px;
+
   height:300px;
+
   object-fit:cover;
+
   border-radius:17px;
-  border:2px solid var(--gold);
-  box-shadow:0 0 25px rgba(255,183,3,.35);
+
+  border:
+    2px solid var(--gold);
+
+  box-shadow:
+    0 0 25px rgba(255,183,3,.35);
+
   display:block;
+
   margin:0 auto 15px;
 }
 
 .caption{
+
   color:#ffd166;
+
   line-height:1.7;
+
   margin-bottom:12px;
 }
 
+/* الأغنية */
+
 .song{
+
   padding:20px;
-  border:2px solid var(--secondary);
+
+  border:
+    2px solid var(--secondary);
+
   border-radius:17px;
-  background:rgba(255,77,109,.08);
+
+  background:
+    rgba(255,77,109,.08);
 }
 
-.youtube{
-  display:inline-block;
-  background:#ff0000;
-  color:white;
-  text-decoration:none;
-  padding:10px 20px;
-  border-radius:25px;
-  margin-top:15px;
-  font-weight:bold;
+.song-status{
+
+  margin-top:20px;
+
+  color:#ffd166;
+
+  font-size:.9rem;
+
+  line-height:1.8;
 }
+
+/* الهدية */
 
 .gift{
+
   font-size:90px;
+
   cursor:pointer;
+
   display:inline-block;
+
   margin:30px 0 10px;
+
   transition:.2s;
+
+  touch-action:manipulation;
 }
 
 .gift:active{
+
   transform:scale(.9);
 }
 
+/* شريط الحب */
+
 .lovebar{
+
   height:12px;
-  background:rgba(255,255,255,.1);
+
+  background:
+    rgba(255,255,255,.1);
+
   border-radius:20px;
+
   overflow:hidden;
+
   margin:15px 0;
 }
 
 .lovefill{
+
   width:0;
+
   height:100%;
-  background:linear-gradient(90deg,#ff4d6d,#ffb703);
-  transition:width 2s ease;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff4d6d,
+      #ffb703
+    );
+
+  transition:
+    width 2s ease;
 }
+
+/* زر الموسيقى */
 
 .audio-btn{
+
   position:fixed;
+
   top:15px;
   left:15px;
+
   z-index:100;
+
   display:none;
-  border:1px solid var(--primary);
+
+  border:
+    1px solid var(--primary);
+
   border-radius:30px;
-  padding:8px 15px;
+
+  padding:9px 16px;
+
   color:white;
-  background:rgba(255,77,109,.25);
+
+  background:
+    rgba(255,77,109,.25);
+
+  backdrop-filter:blur(10px);
+
+  -webkit-backdrop-filter:blur(10px);
+
+  cursor:pointer;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,.3);
+
+  touch-action:manipulation;
 }
 
+.audio-btn:active{
+
+  transform:scale(.94);
+}
+
+/* الهاتف */
+
 @media(max-width:500px){
+
   .container{
     padding:18px;
   }
@@ -303,91 +513,244 @@ body{
   .photo{
     height:270px;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="background" id="background"></div>
+<!-- الخلفية -->
 
-<button class="audio-btn" id="musicButton">
-  🎵 الأغنية
+<div
+  class="background"
+  id="background">
+</div>
+
+
+<!-- =========================
+     الموسيقى
+========================= -->
+
+<audio
+  id="bgMusic"
+  loop
+  preload="auto">
+
+  <source
+    src="music/Albumaty.Com_rashd_alfars__hza_alywm.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- زر التحكم بالموسيقى -->
+
+<button
+  class="audio-btn"
+  id="musicButton"
+  type="button">
+
+  🎵 تشغيل الأغنية
+
 </button>
+
+
+<!-- =========================
+     المحتوى
+========================= -->
 
 <div class="container">
 
+
 <!-- البداية -->
-<section class="step active" id="step1">
+
+<section
+  class="step active"
+  id="step1">
 
   <h1 class="title">
+
     إلى نِداء قلبي.. 💕
+
   </h1>
 
   <p class="subtitle">
-    كان المكان يلفه الظلام، حتى أشرقت أنتِ...
+
+    كان المكان يلفه الظلام،
+    حتى أشرقت أنتِ...
+
   </p>
 
-  <button class="light" id="startButton">
+
+  <button
+    class="light"
+    id="startButton"
+    type="button">
+
     💡
+
   </button>
 
-  <p style="color:#888;font-size:.85rem">
+
+  <p
+    style="
+      color:#888;
+      font-size:.85rem;
+    ">
+
     إضغطي على المصباح لبدء الحكاية ✨
+
   </p>
 
 </section>
 
 
-<!-- الحكاية -->
-<section class="step" id="step2">
+<!-- =========================
+     الحكاية
+========================= -->
 
-  <h2 class="title" style="font-size:1.8rem">
+<section
+  class="step"
+  id="step2">
+
+  <h2
+    class="title"
+    style="font-size:1.8rem">
+
     13 أغسطس 2024 - 1:55 AM 💕
+
   </h2>
 
+
   <p class="subtitle">
-    لحظة الاعتراف الشجاعة التي غيّرت حياتي للأبد
+
+    لحظة الاعتراف الشجاعة
+    التي غيّرت حياتي للأبد
+
   </p>
+
+
+  <!-- العداد -->
 
   <div class="counter">
 
     <div>
-      <div class="number" id="days">0</div>
-      <div class="label">يوم</div>
+
+      <div
+        class="number"
+        id="days">
+
+        0
+
+      </div>
+
+      <div class="label">
+
+        يوم
+
+      </div>
+
     </div>
 
-    <div>
-      <div class="number" id="hours">0</div>
-      <div class="label">ساعة</div>
-    </div>
 
     <div>
-      <div class="number" id="minutes">0</div>
-      <div class="label">دقيقة</div>
+
+      <div
+        class="number"
+        id="hours">
+
+        0
+
+      </div>
+
+      <div class="label">
+
+        ساعة
+
+      </div>
+
     </div>
 
+
     <div>
-      <div class="number" id="seconds">0</div>
-      <div class="label">ثانية</div>
+
+      <div
+        class="number"
+        id="minutes">
+
+        0
+
+      </div>
+
+      <div class="label">
+
+        دقيقة
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <div
+        class="number"
+        id="seconds">
+
+        0
+
+      </div>
+
+      <div class="label">
+
+        ثانية
+
+      </div>
+
     </div>
 
   </div>
 
-  <div class="story" id="story"></div>
+
+  <!-- القصة -->
+
+  <div
+    class="story"
+    id="story">
+  </div>
+
+
+  <!-- التنقل -->
 
   <div class="navigation">
 
-    <button class="btn secondary" id="previous">
+    <button
+      class="btn secondary"
+      id="previous"
+      type="button">
+
       السابق
+
     </button>
 
+
     <span id="chapter">
+
       1 / 6
+
     </span>
 
-    <button class="btn" id="next">
+
+    <button
+      class="btn"
+      id="next"
+      type="button">
+
       التالي ✨
+
     </button>
 
   </div>
@@ -395,29 +758,54 @@ body{
 </section>
 
 
-<!-- الهدية -->
-<section class="step" id="step3">
+<!-- =========================
+     الهدية
+========================= -->
+
+<section
+  class="step"
+  id="step3">
 
   <h2 class="title">
+
     🎁 هدية ندائي المتواضعة 🎁
+
   </h2>
 
+
   <p class="subtitle">
+
     مهما قدمت لكِ، لن يوفيكِ حقكِ..
     تقبلي هذا التعبير البسيط من قلبي
+
   </p>
 
-  <div class="gift" id="gift">
+
+  <div
+    class="gift"
+    id="gift">
+
     🎁
+
   </div>
 
-  <p id="giftHint" style="color:var(--gold)">
+
+  <p
+    id="giftHint"
+    style="color:var(--gold)">
+
     اضغطي على الصندوق لفتحه 🤍
+
   </p>
 
-  <div id="finalMessage" style="display:none">
 
-    <div class="story" style="text-align:center">
+  <div
+    id="finalMessage"
+    style="display:none">
+
+    <div
+      class="story"
+      style="text-align:center">
 
       <p style="line-height:2">
 
@@ -429,26 +817,55 @@ body{
 
         <br><br>
 
-        <strong style="color:var(--gold);font-size:1.3rem">
+        <strong
+          style="
+            color:var(--gold);
+            font-size:1.3rem
+          ">
+
           وداعاً حبيبي 🤍
+
         </strong>
 
       </p>
 
-      <p style="color:var(--gold);margin-top:20px">
+
+      <p
+        style="
+          color:var(--gold);
+          margin-top:20px
+        ">
+
         مستوى الحب الدائم 💕
+
       </p>
 
+
       <div class="lovebar">
-        <div class="lovefill" id="love"></div>
+
+        <div
+          class="lovefill"
+          id="love">
+        </div>
+
       </div>
 
-      <div style="font-size:1.8rem">
+
+      <div
+        style="font-size:1.8rem">
+
         💐 🌹 🌸 🌺 🌷 🌻
+
       </div>
 
-      <button class="btn secondary" id="restart">
+
+      <button
+        class="btn secondary"
+        id="restart"
+        type="button">
+
         إعادة تشغيل الحكاية ↺
+
       </button>
 
     </div>
@@ -462,33 +879,34 @@ body{
 
 <script>
 
-/* =========================
+/* ==========================================
    الصور
-========================= */
+========================================== */
 
 const images = [
+
   {
-    url:"images/IMG-20250616-WA0009.jpg",
-    caption:"اعذريني ولكني أحب هذه الصورة جداً وفوق ما تتصوري. 💕"
+    url:
+      "images/IMG-20250616-WA0009.jpg",
+
+    caption:
+      "اعذريني ولكني أحب هذه الصورة جداً وفوق ما تتصوري. 💕"
   },
+
   {
-    url:"images/IMG-20250108-WA0004.jpg",
-    caption:"أول صورة تجمعنا سوا ولو أنها مش حقيقية، ولكن أحبها جداً جداً جداً ✨"
+    url:
+      "images/IMG-20250108-WA0004.jpg",
+
+    caption:
+      "أول صورة تجمعنا سوا ولو أنها مش حقيقية، ولكن أحبها جداً جداً جداً ✨"
   }
+
 ];
 
 
-/* =========================
-   الأغنية
-========================= */
-
-const youtubeSong =
-"https://youtu.be/lER2VtVPJDA";
-
-
-/* =========================
+/* ==========================================
    الفصول
-========================= */
+========================================== */
 
 const chapters = [
 
@@ -508,6 +926,7 @@ const chapters = [
 `,
 
 `
+
 في مثل هذا اليوم وفي تمام الساعة
 1:55 بعد منتصف الليل،
 كان أحمد في صراع بين قلبه وعقله.
@@ -600,46 +1019,74 @@ const chapters = [
 ];
 
 
-/* =========================
+/* ==========================================
    المتغيرات
-========================= */
+========================================== */
 
 let currentChapter = 0;
+
 let imageIndex = 0;
 
+let counterTimer = null;
 
-/* =========================
+let isPlaying = false;
+
+
+/* ==========================================
    العناصر
-========================= */
+========================================== */
 
-const step1 = document.getElementById("step1");
-const step2 = document.getElementById("step2");
-const step3 = document.getElementById("step3");
+const step1 =
+  document.getElementById("step1");
 
-const story = document.getElementById("story");
+const step2 =
+  document.getElementById("step2");
 
-const startButton = document.getElementById("startButton");
+const step3 =
+  document.getElementById("step3");
 
-const nextButton = document.getElementById("next");
-const previousButton = document.getElementById("previous");
+const story =
+  document.getElementById("story");
 
-const chapterNumber = document.getElementById("chapter");
+const startButton =
+  document.getElementById("startButton");
 
-const gift = document.getElementById("gift");
+const nextButton =
+  document.getElementById("next");
 
-const musicButton = document.getElementById("musicButton");
+const previousButton =
+  document.getElementById("previous");
+
+const chapterNumber =
+  document.getElementById("chapter");
+
+const gift =
+  document.getElementById("gift");
+
+const musicButton =
+  document.getElementById("musicButton");
+
+const bgMusic =
+  document.getElementById("bgMusic");
 
 
-/* =========================
+/* ==========================================
    بدء الحكاية
-========================= */
+========================================== */
 
-startButton.addEventListener("click",function(){
+startButton.addEventListener(
+  "click",
+  startExperience
+);
+
+
+function startExperience(){
 
   step1.classList.remove("active");
+
   step2.classList.add("active");
 
-  musicButton.style.display="block";
+  musicButton.style.display = "block";
 
   renderChapter();
 
@@ -647,12 +1094,90 @@ startButton.addEventListener("click",function(){
 
   createHearts();
 
-});
+  /*
+     مهم جداً:
+     تشغيل الأغنية يحدث بسبب ضغطة المستخدم
+     على المصباح، لذلك المتصفح يسمح بتشغيلها.
+  */
+
+  playMusic();
+
+}
 
 
-/* =========================
+/* ==========================================
+   تشغيل الموسيقى
+========================================== */
+
+function playMusic(){
+
+  bgMusic.play()
+    .then(function(){
+
+      isPlaying = true;
+
+      musicButton.textContent =
+        "🔊 إيقاف الأغنية";
+
+    })
+    .catch(function(error){
+
+      console.log(
+        "تعذر تشغيل الأغنية:",
+        error
+      );
+
+      isPlaying = false;
+
+      musicButton.textContent =
+        "🎵 تشغيل الأغنية";
+
+    });
+
+}
+
+
+/* ==========================================
+   إيقاف الموسيقى
+========================================== */
+
+function pauseMusic(){
+
+  bgMusic.pause();
+
+  isPlaying = false;
+
+  musicButton.textContent =
+    "🎵 تشغيل الأغنية";
+
+}
+
+
+/* ==========================================
+   زر الموسيقى
+========================================== */
+
+musicButton.addEventListener(
+  "click",
+  function(){
+
+    if(isPlaying){
+
+      pauseMusic();
+
+    }else{
+
+      playMusic();
+
+    }
+
+  }
+);
+
+
+/* ==========================================
    عرض الفصل
-========================= */
+========================================== */
 
 function renderChapter(){
 
@@ -662,9 +1187,16 @@ function renderChapter(){
 
       <div class="gallery">
 
-        <h3 style="color:var(--gold);margin-bottom:15px">
+        <h3
+          style="
+            color:var(--gold);
+            margin-bottom:15px
+          ">
+
           معرض ذكرياتنا 💕
+
         </h3>
+
 
         <img
           id="mainPhoto"
@@ -672,19 +1204,33 @@ function renderChapter(){
           src="${images[imageIndex].url}"
           alt="ذكرى">
 
-        <p class="caption" id="photoCaption">
+
+        <p
+          class="caption"
+          id="photoCaption">
+
           ${images[imageIndex].caption}
+
         </p>
+
 
         <button
           class="btn secondary"
-          id="nextPhoto">
+          id="nextPhoto"
+          type="button">
 
           الصورة التالية 📸
 
         </button>
 
-        <p style="color:#999;font-size:.85rem;margin-top:15px;line-height:1.7">
+
+        <p
+          style="
+            color:#999;
+            font-size:.85rem;
+            margin-top:15px;
+            line-height:1.7
+          ">
 
           أعتذر ولكن ليس لدي صور لك كثيراً،
           فقط هاتين الصورتين هما ما في جعبتي 🤍
@@ -692,13 +1238,19 @@ function renderChapter(){
         </p>
 
       </div>
+
     `;
+
 
     document
       .getElementById("nextPhoto")
-      .addEventListener("click",nextPhoto);
+      .addEventListener(
+        "click",
+        nextPhoto
+      );
 
   }
+
 
   else if(chapters[currentChapter] === "songs"){
 
@@ -706,31 +1258,36 @@ function renderChapter(){
 
       <div class="song">
 
-        <h3 style="color:var(--gold)">
+        <h3
+          style="color:var(--gold)">
+
           أغنيتنا 💕🎵
+
         </h3>
 
-        <p style="line-height:1.8;margin-top:15px">
+
+        <p
+          style="
+            line-height:1.8;
+            margin-top:15px
+          ">
 
           هذا اليوم.. أغنية أردت أن تكون جزءاً
           من هذه الحكاية.
 
         </p>
 
-        <a
-          class="youtube"
-          href="${youtubeSong}"
-          target="_blank">
 
-          ▶ تشغيل الأغنية على YouTube
+        <div class="song-status">
 
-        </a>
+          🎵 الأغنية تعمل في الخلفية أثناء الحكاية
 
-        <p style="color:#999;font-size:.8rem;margin-top:15px">
+          <br>
 
-          اضغطي على الزر للاستماع للأغنية.
+          يمكنك التحكم بها من الزر الموجود
+          أعلى الصفحة.
 
-        </p>
+        </div>
 
       </div>
 
@@ -738,215 +1295,290 @@ function renderChapter(){
 
   }
 
+
   else{
 
-    story.innerHTML = chapters[currentChapter];
+    story.innerHTML =
+      chapters[currentChapter];
 
   }
 
+
   chapterNumber.textContent =
-    (currentChapter+1)+" / "+chapters.length;
+    (currentChapter + 1) +
+    " / " +
+    chapters.length;
+
 
   previousButton.style.visibility =
-    currentChapter === 0 ? "hidden" : "visible";
+    currentChapter === 0
+      ? "hidden"
+      : "visible";
+
 
   nextButton.textContent =
-    currentChapter === chapters.length-1
-    ? "إنتقلي للهدية 🎁"
-    : "التالي ✨";
+    currentChapter === chapters.length - 1
+      ? "إنتقلي للهدية 🎁"
+      : "التالي ✨";
+
 }
 
 
-/* =========================
+/* ==========================================
    الصور
-========================= */
+========================================== */
 
 function nextPhoto(){
 
   imageIndex =
-    (imageIndex+1)%images.length;
+    (imageIndex + 1) %
+    images.length;
 
-  document.getElementById("mainPhoto").src =
-    images[imageIndex].url;
 
-  document.getElementById("photoCaption").textContent =
-    images[imageIndex].caption;
+  document
+    .getElementById("mainPhoto")
+    .src =
+      images[imageIndex].url;
+
+
+  document
+    .getElementById("photoCaption")
+    .textContent =
+      images[imageIndex].caption;
+
 }
 
 
-/* =========================
-   التنقل
-========================= */
+/* ==========================================
+   التالي
+========================================== */
 
-nextButton.addEventListener("click",function(){
+nextButton.addEventListener(
+  "click",
+  function(){
 
-  if(currentChapter === chapters.length-1){
+    if(
+      currentChapter ===
+      chapters.length - 1
+    ){
 
-    step2.classList.remove("active");
-    step3.classList.add("active");
+      step2.classList.remove("active");
 
-    return;
-  }
+      step3.classList.add("active");
 
-  currentChapter++;
+      return;
 
-  renderChapter();
-
-});
+    }
 
 
-previousButton.addEventListener("click",function(){
-
-  if(currentChapter > 0){
-
-    currentChapter--;
+    currentChapter++;
 
     renderChapter();
 
   }
+);
 
-});
+
+/* ==========================================
+   السابق
+========================================== */
+
+previousButton.addEventListener(
+  "click",
+  function(){
+
+    if(currentChapter > 0){
+
+      currentChapter--;
+
+      renderChapter();
+
+    }
+
+  }
+);
 
 
-/* =========================
+/* ==========================================
    الهدية
-========================= */
+========================================== */
 
-gift.addEventListener("click",function(){
+gift.addEventListener(
+  "click",
+  function(){
 
-  gift.textContent="🎉";
+    gift.textContent = "🎉";
 
-  document.getElementById("giftHint").style.display="none";
-
-  document.getElementById("finalMessage").style.display="block";
-
-  setTimeout(function(){
-
-    document.getElementById("love").style.width="100%";
-
-  },100);
-
-});
+    document
+      .getElementById("giftHint")
+      .style.display = "none";
 
 
-/* =========================
+    document
+      .getElementById("finalMessage")
+      .style.display = "block";
+
+
+    setTimeout(
+      function(){
+
+        document
+          .getElementById("love")
+          .style.width = "100%";
+
+      },
+      100
+    );
+
+  }
+);
+
+
+/* ==========================================
    إعادة التشغيل
-========================= */
+========================================== */
 
 document
-.getElementById("restart")
-.addEventListener("click",function(){
+  .getElementById("restart")
+  .addEventListener(
+    "click",
+    function(){
 
-  currentChapter=0;
-  imageIndex=0;
+      currentChapter = 0;
 
-  step3.classList.remove("active");
-  step1.classList.add("active");
-
-  document.getElementById("gift").textContent="🎁";
-
-  document.getElementById("giftHint").style.display="block";
-
-  document.getElementById("finalMessage").style.display="none";
-
-  document.getElementById("love").style.width="0";
-
-});
+      imageIndex = 0;
 
 
-/* =========================
+      step3.classList.remove(
+        "active"
+      );
+
+      step1.classList.add(
+        "active"
+      );
+
+
+      document
+        .getElementById("gift")
+        .textContent = "🎁";
+
+
+      document
+        .getElementById("giftHint")
+        .style.display = "block";
+
+
+      document
+        .getElementById("finalMessage")
+        .style.display = "none";
+
+
+      document
+        .getElementById("love")
+        .style.width = "0";
+
+
+      musicButton.style.display =
+        "none";
+
+
+      /*
+         إيقاف الموسيقى عند إعادة
+         تشغيل الحكاية.
+      */
+
+      bgMusic.pause();
+
+      bgMusic.currentTime = 0;
+
+      isPlaying = false;
+
+
+      if(counterTimer){
+
+        clearInterval(counterTimer);
+
+        counterTimer = null;
+
+      }
+
+    }
+  );
+
+
+/* ==========================================
    العداد
-========================= */
+========================================== */
 
 function startCounter(){
 
+  if(counterTimer){
+
+    clearInterval(counterTimer);
+
+  }
+
+
   const start =
-    new Date("2024-08-13T01:55:00");
+    new Date(
+      "2024-08-13T01:55:00"
+    );
+
 
   function update(){
 
-    const now=new Date();
+    const now =
+      new Date();
 
-    const diff=now-start;
 
-    if(diff<0)return;
+    const diff =
+      now - start;
 
-    document.getElementById("days").textContent =
-      Math.floor(diff/86400000);
 
-    document.getElementById("hours").textContent =
-      Math.floor(diff/3600000)%24;
+    if(diff < 0){
 
-    document.getElementById("minutes").textContent =
-      Math.floor(diff/60000)%60;
+      return;
 
-    document.getElementById("seconds").textContent =
-      Math.floor(diff/1000)%60;
+    }
+
+
+    document
+      .getElementById("days")
+      .textContent =
+        Math.floor(
+          diff / 86400000
+        );
+
+
+    document
+      .getElementById("hours")
+      .textContent =
+        Math.floor(
+          diff / 3600000
+        ) % 24;
+
+
+    document
+      .getElementById("minutes")
+      .textContent =
+        Math.floor(
+          diff / 60000
+        ) % 60;
+
+
+    document
+      .getElementById("seconds")
+      .textContent =
+        Math.floor(
+          diff / 1000
+        ) % 60;
 
   }
+
 
   update();
 
-  setInterval(update,1000);
 
-}
-
-
-/* =========================
-   القلوب
-========================= */
-
-function createHearts(){
-
-  const bg =
-    document.getElementById("background");
-
-  if(bg.children.length>0)return;
-
-  const symbols=["💕","💖","✨","💗","⭐"];
-
-  for(let i=0;i<20;i++){
-
-    const heart=document.createElement("div");
-
-    heart.className="heart";
-
-    heart.textContent =
-      symbols[Math.floor(Math.random()*symbols.length)];
-
-    heart.style.left =
-      Math.random()*100+"%";
-
-    heart.style.fontSize =
-      (12+Math.random()*15)+"px";
-
-    heart.style.animationDuration =
-      (6+Math.random()*6)+"s";
-
-    heart.style.animationDelay =
-      Math.random()*5+"s";
-
-    bg.appendChild(heart);
-
-  }
-
-}
-
-
-/* =========================
-   زر الأغنية
-========================= */
-
-musicButton.addEventListener("click",function(){
-
-  window.open(
-    youtubeSong,
-    "_blank"
-  );
-
-});
-
-</script>
-
-</body>
-</html>
+  counterTimer =
+    setInterval(
+      
