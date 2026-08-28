@@ -3,1333 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>إلى ندائي 💕 | 13/8/2024</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --primary:#ff4d6d;
-  --secondary:#c77dff;
-  --gold:#ffb703;
-  --bg:#0b091a;
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:'Cairo',sans-serif;
-}
-
-body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 50% 20%,#210c3d 0%,#0b091a 55%,#05040d 100%);
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow-x:hidden;
-}
-
-.background{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:1;
-}
-
-.heart{
-  position:absolute;
-  bottom:-50px;
-  animation:floatUp linear infinite;
-  opacity:.6;
-}
-
-@keyframes floatUp{
-  from{
-    transform:translateY(0) rotate(0deg);
-    opacity:0;
-  }
-  20%{
-    opacity:.7;
-  }
-  to{
-    transform:translateY(-115vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-.container{
-  position:relative;
-  z-index:5;
-  width:92%;
-  max-width:680px;
-  margin:20px auto;
-  padding:25px;
-  border-radius:25px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.13);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
-  text-align:center;
-}
-
-.step{
-  display:none;
-}
-
-.step.active{
-  display:block;
-  animation:fadeIn .7s ease;
-}
-
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(15px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.title{
-  font-family:'Amiri',serif;
-  font-size:2.3rem;
-  margin-bottom:10px;
-  text-shadow:0 0 20px rgba(255,77,109,.7);
-}
-
-.subtitle{
-  color:#bfc5ff;
-  line-height:1.8;
-  margin-bottom:25px;
-}
-
-.light{
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.35);
-  background:linear-gradient(145deg,#ff4d6d,#7c0020);
-  color:white;
-  font-size:3rem;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:30px auto;
-  box-shadow:0 0 35px rgba(255,77,109,.6);
-  transition:.2s;
-  -webkit-tap-highlight-color:transparent;
-  touch-action:manipulation;
-}
-
-.light:hover{
-  transform:scale(1.07);
-  box-shadow:0 0 50px rgba(255,77,109,.85);
-}
-
-.light:active{
-  transform:scale(.9);
-}
-
-.btn{
-  border:none;
-  border-radius:50px;
-  padding:12px 25px;
-  margin-top:15px;
-  color:white;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  font-size:1rem;
-  cursor:pointer;
-  box-shadow:0 5px 20px rgba(255,77,109,.3);
-  touch-action:manipulation;
-}
-
-.btn:active{
-  transform:scale(.96);
-}
-
-.secondary{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.3);
-}
-
-.counter{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  margin:20px 0;
-}
-
-.counter div{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  padding:10px 4px;
-}
-
-.number{
-  color:var(--gold);
-  font-size:1.4rem;
-  font-weight:bold;
-}
-
-.label{
-  color:#aaa;
-  font-size:.7rem;
-}
-
-.story{
-  text-align:right;
-  line-height:2;
-  font-size:1.02rem;
-  background:rgba(5,4,20,.55);
-  border-radius:17px;
-  padding:22px;
-  min-height:230px;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.quote{
-  border-right:3px solid var(--gold);
-  padding-right:12px;
-  color:#ffe3a8;
-  font-family:'Amiri',serif;
-  font-size:1.05rem;
-  margin:18px 0;
-}
-
-.navigation{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:15px;
-}
-
-.gallery{
-  text-align:center;
-}
-
-.photo{
-  width:100%;
-  max-width:320px;
-  height:300px;
-  object-fit:cover;
-  border-radius:17px;
-  border:2px solid var(--gold);
-  box-shadow:0 0 25px rgba(255,183,3,.35);
-  display:block;
-  margin:0 auto 15px;
-}
-
-.caption{
-  color:#ffd166;
-  line-height:1.7;
-  margin-bottom:12px;
-}
-
-.song{
-  padding:20px;
-  border:2px solid var(--secondary);
-  border-radius:17px;
-  background:rgba(255,77,109,.08);
-}
-
-.music-status{
-  color:#ffd166;
-  margin-top:15px;
-  font-size:.9rem;
-}
-
-.gift{
-  font-size:90px;
-  cursor:pointer;
-  display:inline-block;
-  margin:30px 0 10px;
-  transition:.2s;
-  touch-action:manipulation;
-}
-
-.gift:active{
-  transform:scale(.9);
-}
-
-.lovebar{
-  height:12px;
-  background:rgba(255,255,255,.1);
-  border-radius:20px;
-  overflow:hidden;
-  margin:15px 0;
-}
-
-.lovefill{
-  width:0;
-  height:100%;
-  background:linear-gradient(90deg,#ff4d6d,#ffb703);
-  transition:width 2s ease;
-}
-
-.audio-btn{
-  position:fixed;
-  top:15px;
-  left:15px;
-  z-index:100;
-  display:none;
-  border:1px solid var(--primary);
-  border-radius:30px;
-  padding:8px 15px;
-  color:white;
-  background:rgba(255,77,109,.25);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  cursor:pointer;
-  touch-action:manipulation;
-}
-
-.audio-btn:active{
-  transform:scale(.95);
-}
-
-@media(max-width:500px){
-
-  .container{
-    padding:18px;
-  }
-
-  .title{
-    font-size:1.9rem;
-  }
-
-  .counter{
-    gap:5px;
-  }
-
-  .number{
-    font-size:1.1rem;
-  }
-
-  .photo{
-    height:270px;
-  }
-
-}
+:root{--primary:#ff4d6d;--secondary:#c77dff;--gold:#ffb703;--bg:#0b091a}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{min-height:100vh;background:radial-gradient(circle at 50% 20%,#210c3d,#0b091a 55%,#05040d);color:white;display:flex;justify-content:center;align-items:center;overflow-x:hidden}
+.background{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.heart{position:absolute;bottom:-50px;animation:floatUp linear infinite;opacity:.6}
+@keyframes floatUp{from{transform:translateY(0) rotate(0);opacity:0}20%{opacity:.7}to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.container{position:relative;z-index:5;width:92%;max-width:680px;margin:20px auto;padding:25px;border-radius:25px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,.6);text-align:center}
+.step{display:none}.step.active{display:block;animation:fadeIn .7s ease}@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.title{font-family:Georgia,serif;font-size:2.3rem;margin-bottom:10px;text-shadow:0 0 20px rgba(255,77,109,.7)}.subtitle{color:#bfc5ff;line-height:1.8;margin-bottom:25px}
+.light{width:110px;height:110px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:linear-gradient(145deg,#ff4d6d,#7c0020);color:white;font-size:3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:30px auto;box-shadow:0 0 35px rgba(255,77,109,.6);transition:.2s;touch-action:manipulation}.light:active{transform:scale(.9)}
+.btn{border:none;border-radius:50px;padding:12px 25px;margin-top:15px;color:white;background:linear-gradient(135deg,var(--primary),var(--secondary));font-size:1rem;cursor:pointer;touch-action:manipulation}.secondary{background:transparent;border:1px solid rgba(255,255,255,.3)}
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0}.counter div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 4px}.number{color:var(--gold);font-size:1.4rem;font-weight:bold}.label{color:#aaa;font-size:.7rem}
+.story{text-align:right;line-height:2;font-size:1.02rem;background:rgba(5,4,20,.55);border-radius:17px;padding:22px;min-height:230px;border:1px solid rgba(255,255,255,.08)}.quote{border-right:3px solid var(--gold);padding-right:12px;color:#ffe3a8;font-family:Georgia,serif;font-size:1.05rem;margin:18px 0}
+.navigation{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px}.gallery{text-align:center}.photo{width:100%;max-width:320px;height:300px;object-fit:cover;border-radius:17px;border:2px solid var(--gold);box-shadow:0 0 25px rgba(255,183,3,.35);display:block;margin:0 auto 15px}.caption{color:#ffd166;line-height:1.7;margin-bottom:12px}
+.song{padding:20px;border:2px solid var(--secondary);border-radius:17px;background:rgba(255,77,109,.08);margin-bottom:12px}.song h3{color:var(--gold)}.youtube{display:inline-block;background:#ff0000;color:white;text-decoration:none;padding:10px 20px;border-radius:25px;margin-top:15px;font-weight:bold}
+.gift{font-size:90px;cursor:pointer;display:inline-block;margin:30px 0 10px;transition:.2s}.gift:active{transform:scale(.9)}.lovebar{height:12px;background:rgba(255,255,255,.1);border-radius:20px;overflow:hidden;margin:15px 0}.lovefill{width:0;height:100%;background:linear-gradient(90deg,#ff4d6d,#ffb703);transition:width 2s ease}
+@media(max-width:500px){.container{padding:18px}.title{font-size:1.9rem}.number{font-size:1.1rem}.photo{height:270px}}
 </style>
 </head>
-
 <body>
-
 <div class="background" id="background"></div>
 
-<!-- الموسيقى المحلية -->
-<audio
-  id="bgMusic"
-  loop
-  preload="auto">
-  <source
-    src="Albumaty.Com_rashd_alfars__hza_alywm.mp3"
-    type="audio/mpeg">
-</audio>
-
-<!-- زر الموسيقى -->
-<button
-  class="audio-btn"
-  id="musicButton"
-  type="button">
-  🎵 إيقاف الأغنية
-</button>
-
 <div class="container">
-
-<!-- =========================
-     البداية
-========================= -->
-
 <section class="step active" id="step1">
-
-  <h1 class="title">
-    إلى نِداء قلبي.. 💕
-  </h1>
-
-  <p class="subtitle">
-    كان المكان يلفه الظلام، حتى أشرقت أنتِ...
-  </p>
-
-  <button
-    class="light"
-    id="startButton"
-    type="button">
-    💡
-  </button>
-
-  <p style="color:#888;font-size:.85rem">
-    إضغطي على المصباح لبدء الحكاية ✨
-  </p>
-
+<h1 class="title">إلى نِداء قلبي.. 💕</h1>
+<p class="subtitle">كان المكان يلفه الظلام، حتى أشرقت أنتِ...</p>
+<button class="light" id="startButton" type="button">💡</button>
+<p style="color:#888;font-size:.85rem">إضغطي على المصباح لبدء الحكاية ✨</p>
 </section>
-
-
-<!-- =========================
-     الحكاية
-========================= -->
 
 <section class="step" id="step2">
-
-  <h2 class="title" style="font-size:1.8rem">
-    13 أغسطس 2024 - 1:55 AM 💕
-  </h2>
-
-  <p class="subtitle">
-    لحظة الاعتراف الشجاعة التي غيّرت حياتي للأبد
-  </p>
-
-  <div class="counter">
-
-    <div>
-      <div class="number" id="days">0</div>
-      <div class="label">يوم</div>
-    </div>
-
-    <div>
-      <div class="number" id="hours">0</div>
-      <div class="label">ساعة</div>
-    </div>
-
-    <div>
-      <div class="number" id="minutes">0</div>
-      <div class="label">دقيقة</div>
-    </div>
-
-    <div>
-      <div class="number" id="seconds">0</div>
-      <div class="label">ثانية</div>
-    </div>
-
-  </div>
-
-  <div class="story" id="story"></div>
-
-  <div class="navigation">
-
-    <button
-      class="btn secondary"
-      id="previous"
-      type="button">
-      السابق
-    </button>
-
-    <span id="chapter">
-      1 / 6
-    </span>
-
-    <button
-      class="btn"
-      id="next"
-      type="button">
-      التالي ✨
-    </button>
-
-  </div>
-
+<h2 class="title" style="font-size:1.8rem">13 أغسطس 2024 - 1:55 AM 💕</h2>
+<p class="subtitle">لحظة الاعتراف الشجاعة التي غيّرت حياتي للأبد</p>
+<div class="counter">
+<div><div class="number" id="days">0</div><div class="label">يوم</div></div>
+<div><div class="number" id="hours">0</div><div class="label">ساعة</div></div>
+<div><div class="number" id="minutes">0</div><div class="label">دقيقة</div></div>
+<div><div class="number" id="seconds">0</div><div class="label">ثانية</div></div>
+</div>
+<div class="story" id="story"></div>
+<div class="navigation">
+<button class="btn secondary" id="previous" type="button">السابق</button>
+<span id="chapter">1 / 6</span>
+<button class="btn" id="next" type="button">التالي ✨</button>
+</div>
 </section>
-
-
-<!-- =========================
-     الهدية
-========================= -->
 
 <section class="step" id="step3">
-
-  <h2 class="title">
-    🎁 هدية ندائي المتواضعة 🎁
-  </h2>
-
-  <p class="subtitle">
-    مهما قدمت لكِ، لن يوفيكِ حقكِ..
-    تقبلي هذا التعبير البسيط من قلبي
-  </p>
-
-  <div
-    class="gift"
-    id="gift">
-    🎁
-  </div>
-
-  <p
-    id="giftHint"
-    style="color:var(--gold)">
-    اضغطي على الصندوق لفتحه 🤍
-  </p>
-
-  <div
-    id="finalMessage"
-    style="display:none">
-
-    <div
-      class="story"
-      style="text-align:center">
-
-      <p style="line-height:2">
-
-        في الختام..
-        أحبكِ ندائي،
-        وأتمنى في هذا اليوم
-        أن تكوني في أتم الصحة والعافية،
-        وأن يجمعني الله بكِ في خير وعلى خير.
-
-        <br><br>
-
-        <strong
-          style="color:var(--gold);font-size:1.3rem">
-          وداعاً حبيبي 🤍
-        </strong>
-
-      </p>
-
-      <p
-        style="color:var(--gold);margin-top:20px">
-        مستوى الحب الدائم 💕
-      </p>
-
-      <div class="lovebar">
-        <div
-          class="lovefill"
-          id="love">
-        </div>
-      </div>
-
-      <div style="font-size:1.8rem">
-        💐 🌹 🌸 🌺 🌷 🌻
-      </div>
-
-      <button
-        class="btn secondary"
-        id="restart"
-        type="button">
-        إعادة تشغيل الحكاية ↺
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
+<h2 class="title">🎁 هدية ندائي المتواضعة 🎁</h2>
+<p class="subtitle">مهما قدمت لكِ، لن يوفيكِ حقكِ.. تقبلي هذا التعبير البسيط من قلبي</p>
+<div class="gift" id="gift">🎁</div>
+<p id="giftHint" style="color:var(--gold)">اضغطي على الصندوق لفتحه 🤍</p>
+<div id="finalMessage" style="display:none">
+<div class="story" style="text-align:center">
+<p style="line-height:2">في الختام.. أحبكِ ندائي، وأتمنى في هذا اليوم أن تكوني في أتم الصحة والعافية، وأن يجمعني الله بكِ في خير وعلى خير.
+<br><br><strong style="color:var(--gold);font-size:1.3rem">وداعاً حبيبي 🤍</strong></p>
+<p style="color:var(--gold);margin-top:20px">مستوى الحب الدائم 💕</p>
+<div class="lovebar"><div class="lovefill" id="love"></div></div>
+<div style="font-size:1.8rem">💐 🌹 🌸 🌺 🌷 🌻</div>
+<button class="btn secondary" id="restart" type="button">إعادة تشغيل الحكاية ↺</button>
 </div>
-
+</div>
+</section>
+</div>
 
 <script>
-
-/* =========================
-   الصور
-========================= */
-
-const images = [
-
-  {
-    url:"images/IMG-20250616-WA0009.jpg",
-    caption:"اعذريني ولكني أحب هذه الصورة جداً وفوق ما تتصوري. 💕"
-  },
-
-  {
-    url:"images/IMG-20250108-WA0004.jpg",
-    caption:"أول صورة تجمعنا سوا ولو أنها مش حقيقية، ولكن أحبها جداً جداً جداً ✨"
-  }
-
+const images=[
+{url:"images/IMG-20250616-WA0009.jpg",caption:"اعذريني ولكني أحب هذه الصورة جداً وفوق ما تتصوري. 💕"},
+{url:"images/IMG-20250108-WA0004.jpg",caption:"أول صورة تجمعنا سوا ولو أنها مش حقيقية، ولكن أحبها جداً جداً جداً ✨"}
 ];
 
+const songs=[
+{title:"الأغنية الأولى 🎶",url:"https://youtu.be/223R5N5t7es",caption:"هذه أغنيتنا الأولى أو اعتبرها أغنيتي الأولى معك، لأنني وبمجرد سماعها لا أستطيع التفكير إلا بك فقط."},
+{title:"أنت مامثلك عيون 🎵",url:"https://youtu.be/Lf3HrxSgeE8",caption:"هو في مثلك؟ أنت مامثلك عيون"},
+{title:"باختياري 💕",url:"https://youtu.be/dyPOITgFpEE",caption:"باختياري قلبي حبك باختيااااااري"},
+{title:"يا بعد المسافة 🌹",url:"https://youtu.be/zVfjCaDclp8",caption:"قصري بعد المسافة لا تطول وارحمي قلب يعذبه الحنين."},
+{title:"تصدقي وإلا احلفلك ✨",url:"https://youtu.be/UC9h35kyrC4",caption:"تصدقي وإلا احلفلك اني احبك طيب؟!!!"},
+{title:"يا عيونك 💖",url:"https://youtu.be/h0T2iOZA-LI",caption:"عيوووووووونك يااااااااااااااعيونك ياللي هي آخر امالي والله"},
+{title:"عيونك لا توريها 🌸",url:"https://youtu.be/nyk8GP12cPE",caption:"عيونك لا توريها لغيري لا توريها!"},
+{title:"مثل الشروق 🌅",url:"https://youtu.be/bci_-78aB0s",caption:"جيتني مثل الشروق اللي محى عتم الليالي.. جيت فرحه للحزين اللي من همومه هلك"}
+];
 
-/* =========================
-   الفصول
-========================= */
-
-const chapters = [
-
-`
-في مثل هذا اليوم ولد أحمد وأشرقت شمسه،
-كان أحمد يعيش في سراب يتخبطه يمنة ويسرة
-حتى ظهرتِ أنتِ.
-
-<br><br>
-
-تعلم أحمد منكِ الكثير،
-بل وأكاد أجزم أن ما تعلمته منكِ
-كان أكثر مما تعلمته في مراحل دراستي.
-
-تعلمت أن أكون أحمد الحقيقي،
-تعلمت الحب، الاهتمام، الشعور، والإحساس.
-`,
-
-`
-في مثل هذا اليوم وفي تمام الساعة
-1:55 بعد منتصف الليل،
-كان أحمد في صراع بين قلبه وعقله.
-
-قلب يريد المجازفة والاعتراف،
-وعقل لا يقبل بالرفض.
-
-ضعيف، جبان، لا يحب المواجهة،
-لا يحب الاعتراف،
-يخشى أن يبوح بما في قلبه..
-
-<br><br>
-
-نعم كان لا يرى سواكِ،
-ونعم كان لا ينبض إلا لكِ.
-
-ولكن كعادة أحمد سابقاً
-لم يستطع التغلب على خوفه.
-
-أتى هذا اليوم وهذا التاريخ،
-وبعد محاولات عدة،
-شد وجذب،
-رسالة تُحذف وكلام يُمحى،
-إقبال وتردد،
-
-قرر أحمد أن يبوح لكِ بما في قلبه..
-
-تشجع واعترف لكِ بحبه
-الذي طالما كان ساكناً في قلبه
-لا يعلمه غيره.
-
-أحبكِ طيلة سنين وأعوام مع نفسه
-وظل صامتاً يراقب من بعيد،
-حتى أتى هذا اليوم.
-`,
-
+const chapters=[
+`في مثل هذا اليوم ولد أحمد وأشرقت شمسه، كان أحمد يعيش في سراب يتخبطه يمنة ويسرة حتى ظهرتِ أنتِ.<br><br>تعلم أحمد منكِ الكثير، بل وأكاد أجزم أن ما تعلمته منكِ كان أكثر مما تعلمته في مراحل دراستي.<br><br>تعلمت أن أكون أحمد الحقيقي، تعلمت الحب، الاهتمام، الشعور، والإحساس.`,
+`في مثل هذا اليوم وفي تمام الساعة 1:55 بعد منتصف الليل، كان أحمد في صراع بين قلبه وعقله.<br><br>قلب يريد المجازفة والاعتراف، وعقل لا يقبل بالرفض.<br><br>ضعيف، جبان، لا يحب المواجهة، لا يحب الاعتراف، يخشى أن يبوح بما في قلبه..<br><br>نعم كان لا يرى سواكِ، ونعم كان لا ينبض إلا لكِ.<br><br>ولكن كعادة أحمد سابقاً لم يستطع التغلب على خوفه ومهابة المجازفة.<br><br>أتى هذا اليوم وهذا التاريخ، وبعد محاولات عدة، شد وجذب، رسالة تُحذف وكلام يُمحى، إقبال وتردد،<br><br>قرر أحمد أن يبوح لكِ بما في قلبه..<br><br>تشجع واعترف لكِ بحبه الذي طالما كان ساكناً في قلبه لا يعلمه غيره.<br><br>أحبكِ طيلة سنين وأعوام مع نفسه وظل صامتاً يراقب من بعيد، حتى أتى هذا اليوم.`,
 "gallery",
-
 "songs",
-
-`
-طالما شبهتكِ بالسحر،
-حيث أنكِ جئتِ وغيرتِ أحمد
-وحياة أحمد من وإلى..
-
-أعجز عن وصفكِ ووصف ما قمتِ به.
-
-كيف كان يعيش تلك الحياة البائسة والكئيبة،
-حياة ليس لها لون ولا طعم ولا رائحة حتى أتيتِ.
-
-كنتُ أعمى،
-جسداً بدون روح.
-
-أتيتِ أنتِ وبعثتِ الحياة لذلك الجسد،
-أحببتُ الحياة وأحببتُ نفسي،
-ولكن أحببتكِ أكثر.
-
-<div class="quote">
-
-"طول عمري بخاف من الحب وسيرة الحب..
-وقابلتك انت لقيتك بتغير كل حياتي..
-ما أعرفش إزاي حبيتك ما أعرفش إزاي ياحياتي..
-من همسة حب لقيتني باحب وأدوب في الحب
-وصبح وليل علي بابه."
-
-</div>
-`,
-
-`
-وأخيراً وليس آخراً،
-أريد أن أستغل هذا اليوم وهذه اللحظة لأقول لكِ:
-
-<div class="quote">
-
-"ياما عيون شاغلوني
-لكن ولا شغلوني..
-إلا عيونك انت
-دول بس اللي خدوني
-وبحبك أمروني."
-
-</div>
-
-أحبكِ في الأمس
-وأحبكِ اليوم وغداً وحتى الممات،
-
-سأظل أحبكِ طالما هذا الجسد
-لا يزال يتنفس 💕
-`
-
+`طالما شبهتكِ بالسحر، حيث أنكِ جئتِ وغيرتِ أحمد وحياة أحمد من وإلى..<br><br>أعجز عن وصفكِ ووصف ما قمتِ به.<br><br>كيف كان يعيش تلك الحياة البائسة والكئيبة، حياة ليس لها لون ولا طعم ولا رائحة حتى أتيتِ.<br><br>كنتُ أعمى، جسداً بدون روح.<br><br>أتيتِ أنتِ وبعثتِ الحياة لذلك الجسد، أحببتُ الحياة وأحببتُ نفسي، ولكن أحببتكِ أكثر.<div class="quote">"طول عمري بخاف من الحب وسيرة الحب.. وقابلتك انت لقيتك بتغير كل حياتي.. ما أعرفش إزاي حبيتك ما أعرفش إزاي ياحياتي.. من همسة حب لقيتني باحب وأدوب في الحب وصبح وليل علي بابه."</div>`,
+`وأخيراً وليس آخراً، أريد أن أستغل هذا اليوم وهذه اللحظة لأقول لكِ:<div class="quote">"ياما عيون شاغلوني لكن ولا شغلوني.. إلا عيونك انت دول بس اللي خدوني وبحبك أمروني."</div>أحبكِ في الأمس وأحبكِ اليوم وغداً وحتى الممات،<br><br>سأظل أحبكِ طالما هذا الجسد لا يزال يتنفس 💕`
 ];
 
+let currentChapter=0,imageIndex=0,counterTimer=null;
 
-/* =========================
-   المتغيرات
-========================= */
+const step1=document.getElementById("step1");
+const step2=document.getElementById("step2");
+const step3=document.getElementById("step3");
+const story=document.getElementById("story");
+const startButton=document.getElementById("startButton");
+const nextButton=document.getElementById("next");
+const previousButton=document.getElementById("previous");
+const chapterNumber=document.getElementById("chapter");
+const gift=document.getElementById("gift");
+const giftHint=document.getElementById("giftHint");
+const finalMessage=document.getElementById("finalMessage");
+const restartButton=document.getElementById("restart");
+const love=document.getElementById("love");
 
-let currentChapter = 0;
-let imageIndex = 0;
-let counterTimer = null;
-let musicPlaying = false;
-
-
-/* =========================
-   العناصر
-========================= */
-
-const step1 =
-  document.getElementById("step1");
-
-const step2 =
-  document.getElementById("step2");
-
-const step3 =
-  document.getElementById("step3");
-
-const story =
-  document.getElementById("story");
-
-const startButton =
-  document.getElementById("startButton");
-
-const nextButton =
-  document.getElementById("next");
-
-const previousButton =
-  document.getElementById("previous");
-
-const chapterNumber =
-  document.getElementById("chapter");
-
-const gift =
-  document.getElementById("gift");
-
-const musicButton =
-  document.getElementById("musicButton");
-
-const bgMusic =
-  document.getElementById("bgMusic");
-
-
-/* =========================
-   بدء الحكاية
-========================= */
-
-startButton.addEventListener(
-  "click",
-  startExperience
-);
-
+startButton.addEventListener("click",startExperience);
 
 function startExperience(){
-
-  step1.classList.remove("active");
-
-  step2.classList.add("active");
-
-  musicButton.style.display = "block";
-
-  renderChapter();
-
-  startCounter();
-
-  createHearts();
-
-  playMusic();
-
+step1.classList.remove("active");
+step2.classList.add("active");
+renderChapter();
+startCounter();
+createHearts();
 }
-
-
-/* =========================
-   تشغيل الموسيقى
-========================= */
-
-function playMusic(){
-
-  bgMusic.volume = 0.45;
-
-  const promise = bgMusic.play();
-
-  if(promise !== undefined){
-
-    promise
-      .then(function(){
-
-        musicPlaying = true;
-
-        musicButton.textContent =
-          "🎵 إيقاف الأغنية";
-
-      })
-      .catch(function(){
-
-        musicPlaying = false;
-
-        musicButton.textContent =
-          "🎵 تشغيل الأغنية";
-
-      });
-
-  }
-
-}
-
-
-/* =========================
-   إيقاف الموسيقى
-========================= */
-
-function pauseMusic(){
-
-  bgMusic.pause();
-
-  musicPlaying = false;
-
-  musicButton.textContent =
-    "🎵 تشغيل الأغنية";
-
-}
-
-
-/* =========================
-   زر الموسيقى
-========================= */
-
-musicButton.addEventListener(
-  "click",
-  function(){
-
-    if(musicPlaying){
-
-      pauseMusic();
-
-    }else{
-
-      playMusic();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   عرض الفصل
-========================= */
 
 function renderChapter(){
+const chapter=chapters[currentChapter];
 
-  const chapter =
-    chapters[currentChapter];
-
-
-  if(chapter === "gallery"){
-
-    story.innerHTML = `
-
-      <div class="gallery">
-
-        <h3
-          style="color:var(--gold);margin-bottom:15px">
-
-          معرض ذكرياتنا 💕
-
-        </h3>
-
-        <img
-          id="mainPhoto"
-          class="photo"
-          src="${images[imageIndex].url}"
-          alt="ذكرى">
-
-        <p
-          class="caption"
-          id="photoCaption">
-
-          ${images[imageIndex].caption}
-
-        </p>
-
-        <button
-          class="btn secondary"
-          id="nextPhoto"
-          type="button">
-
-          الصورة التالية 📸
-
-        </button>
-
-        <p
-          style="
-          color:#999;
-          font-size:.85rem;
-          margin-top:15px;
-          line-height:1.7">
-
-          أعتذر ولكن ليس لدي صور لك كثيراً،
-          فقط هاتين الصورتين هما ما في جعبتي 🤍
-
-        </p>
-
-      </div>
-
-    `;
-
-
-    document
-      .getElementById("nextPhoto")
-      .addEventListener(
-        "click",
-        nextPhoto
-      );
-
-  }
-
-
-  else if(chapter === "songs"){
-
-    story.innerHTML = `
-
-      <div class="song">
-
-        <h3 style="color:var(--gold)">
-          أغنيتنا 💕🎵
-        </h3>
-
-        <p
-          style="
-          line-height:1.8;
-          margin-top:15px">
-
-          هذه الأغنية أردت أن تكون
-          جزءاً من هذه الحكاية.
-
-        </p>
-
-        <button
-          class="btn"
-          id="songInsideButton"
-          type="button">
-
-          🎵 تشغيل / إيقاف الأغنية
-
-        </button>
-
-        <p
-          class="music-status"
-          id="musicStatus">
-
-          الموسيقى تعمل في الخلفية عند تشغيلها 🎶
-
-        </p>
-
-      </div>
-
-    `;
-
-
-    document
-      .getElementById("songInsideButton")
-      .addEventListener(
-        "click",
-        function(){
-
-          if(musicPlaying){
-
-            pauseMusic();
-
-          }else{
-
-            playMusic();
-
-          }
-
-        }
-      );
-
-  }
-
-
-  else{
-
-    story.innerHTML = chapter;
-
-  }
-
-
-  chapterNumber.textContent =
-    (currentChapter + 1) +
-    " / " +
-    chapters.length;
-
-
-  previousButton.style.visibility =
-    currentChapter === 0
-      ? "hidden"
-      : "visible";
-
-
-  if(currentChapter === chapters.length - 1){
-
-    nextButton.textContent =
-      "إنتقلي للهدية 🎁";
-
-  }else{
-
-    nextButton.textContent =
-      "التالي ✨";
-
-  }
-
+if(chapter==="gallery"){
+story.innerHTML=`<div class="gallery">
+<h3 style="color:var(--gold);margin-bottom:15px">معرض ذكرياتنا 💕</h3>
+<img id="mainPhoto" class="photo" src="${images[imageIndex].url}" alt="ذكرى">
+<p class="caption" id="photoCaption">${images[imageIndex].caption}</p>
+<button class="btn secondary" id="nextPhoto" type="button">الصورة التالية 📸</button>
+<p style="color:#999;font-size:.85rem;margin-top:15px;line-height:1.7">أعتذر ولكن ليس لدي صور لك كثيراً، فقط هاتين الصورتين هما ما في جعبتي 🤍</p>
+</div>`;
+document.getElementById("nextPhoto").addEventListener("click",nextPhoto);
 }
+else if(chapter==="songs"){
+let songsHTML="";
+songs.forEach(song=>{
+songsHTML+=`<div class="song"><h3>${song.title}</h3><p style="line-height:1.8;margin-top:12px">${song.caption}</p><a class="youtube" href="${song.url}" target="_blank" rel="noopener noreferrer">▶ تشغيل الأغنية على YouTube</a></div>`;
+});
+story.innerHTML=`<div><h3 style="color:var(--gold);margin-bottom:15px">أغنيات الحكاية 🎵💕</h3><p style="line-height:1.8;margin-bottom:15px">ثماني أغنيات، لكل واحدة منها شيء خاص في هذه الحكاية 🤍</p>${songsHTML}</div>`;
+}
+else{story.innerHTML=chapter;}
 
-
-/* =========================
-   الصور
-========================= */
+chapterNumber.textContent=(currentChapter+1)+" / "+chapters.length;
+previousButton.style.visibility=currentChapter===0?"hidden":"visible";
+nextButton.textContent=currentChapter===chapters.length-1?"إنتقلي للهدية 🎁":"التالي ✨";
+}
 
 function nextPhoto(){
-
-  imageIndex =
-    (imageIndex + 1) %
-    images.length;
-
-
-  const photo =
-    document.getElementById("mainPhoto");
-
-  const caption =
-    document.getElementById("photoCaption");
-
-
-  photo.src =
-    images[imageIndex].url;
-
-
-  caption.textContent =
-    images[imageIndex].caption;
-
+imageIndex=(imageIndex+1)%images.length;
+document.getElementById("mainPhoto").src=images[imageIndex].url;
+document.getElementById("photoCaption").textContent=images[imageIndex].caption;
 }
 
+nextButton.addEventListener("click",function(){
+if(currentChapter===chapters.length-1){
+step2.classList.remove("active");
+step3.classList.add("active");
+return;
+}
+currentChapter++;
+renderChapter();
+});
 
-/* =========================
-   التالي
-========================= */
+previousButton.addEventListener("click",function(){
+if(currentChapter>0){currentChapter--;renderChapter();}
+});
 
-nextButton.addEventListener(
-  "click",
-  function(){
+gift.addEventListener("click",function(){
+gift.textContent="🎉";
+giftHint.style.display="none";
+finalMessage.style.display="block";
+setTimeout(()=>{love.style.width="100%";},100);
+});
 
-    if(
-      currentChapter ===
-      chapters.length - 1
-    ){
-
-      step2.classList.remove("active");
-
-      step3.classList.add("active");
-
-      return;
-
-    }
-
-
-    currentChapter++;
-
-    renderChapter();
-
-  }
-);
-
-
-/* =========================
-   السابق
-========================= */
-
-previousButton.addEventListener(
-  "click",
-  function(){
-
-    if(currentChapter > 0){
-
-      currentChapter--;
-
-      renderChapter();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   الهدية
-========================= */
-
-gift.addEventListener(
-  "click",
-  function(){
-
-    gift.textContent = "🎉";
-
-    document
-      .getElementById("giftHint")
-      .style.display = "none";
-
-
-    document
-      .getElementById("finalMessage")
-      .style.display = "block";
-
-
-    setTimeout(
-      function(){
-
-        document
-          .getElementById("love")
-          .style.width = "100%";
-
-      },
-      100
-    );
-
-  }
-);
-
-
-/* =========================
-   إعادة التشغيل
-========================= */
-
-document
-  .getElementById("restart")
-  .addEventListener(
-    "click",
-    function(){
-
-      currentChapter = 0;
-
-      imageIndex = 0;
-
-
-      step3.classList.remove("active");
-
-      step1.classList.add("active");
-
-
-      gift.textContent = "🎁";
-
-
-      document
-        .getElementById("giftHint")
-        .style.display = "block";
-
-
-      document
-        .getElementById("finalMessage")
-        .style.display = "none";
-
-
-      document
-        .getElementById("love")
-        .style.width = "0";
-
-
-      musicButton.style.display = "none";
-
-      pauseMusic();
-
-      renderChapter();
-
-    }
-  );
-
-
-/* =========================
-   العداد
-========================= */
+restartButton.addEventListener("click",function(){
+currentChapter=0;imageIndex=0;
+step3.classList.remove("active");
+step1.classList.add("active");
+gift.textContent="🎁";
+giftHint.style.display="block";
+finalMessage.style.display="none";
+love.style.width="0";
+if(counterTimer){clearInterval(counterTimer);counterTimer=null;}
+});
 
 function startCounter(){
-
-  if(counterTimer !== null){
-
-    clearInterval(counterTimer);
-
-  }
-
-
-  const start =
-    new Date(
-      "2024-08-13T01:55:00"
-    );
-
-
-  function update(){
-
-    const now =
-      new Date();
-
-
-    const diff =
-      now.getTime() -
-      start.getTime();
-
-
-    if(diff < 0){
-
-      return;
-
-    }
-
-
-    document
-      .getElementById("days")
-      .textContent =
-        Math.floor(
-          diff / 86400000
-        );
-
-
-    document
-      .getElementById("hours")
-      .textContent =
-        Math.floor(
-          diff / 3600000
-        ) % 24;
-
-
-    document
-      .getElementById("minutes")
-      .textContent =
-        Math.floor(
-          diff / 60000
-        ) % 60;
-
-
-    document
-      .getElementById("seconds")
-      .textContent =
-        Math.floor(
-          diff / 1000
-        ) % 60;
-
-  }
-
-
-  update();
-
-
-  counterTimer =
-    setInterval(
-      update,
-      1000
-    );
-
+if(counterTimer)clearInterval(counterTimer);
+const start=new Date("2024-08-13T01:55:00");
+function update(){
+const diff=new Date()-start;
+if(diff<0)return;
+document.getElementById("days").textContent=Math.floor(diff/86400000);
+document.getElementById("hours").textContent=Math.floor(diff/3600000)%24;
+document.getElementById("minutes").textContent=Math.floor(diff/60000)%60;
+document.getElementById("seconds").textContent=Math.floor(diff/1000)%60;
 }
-
-
-/* =========================
-   القلوب
-========================= */
+update();
+counterTimer=setInterval(update,1000);
+}
 
 function createHearts(){
-
-  const background =
-    document.getElementById(
-      "background"
-    );
-
-
-  if(background.children.length > 0){
-
-    return;
-
-  }
-
-
-  const symbols = [
-    "💕",
-    "💖",
-    "✨",
-    "💗",
-    "⭐"
-  ];
-
-
-  for(let i = 0; i < 20; i++){
-
-    const heart =
-      document.createElement(
-        "div"
-      );
-
-
-    heart.className =
-      "heart";
-
-
-    heart.textContent =
-      symbols[
-        Math.floor(
-          Math.random() *
-          symbols.length
-        )
-      ];
-
-
-    heart.style.left =
-      Math.random() * 100 + "%";
-
-
-    heart.style.fontSize =
-      (12 +
-      Math.random() * 15) +
-      "px";
-
-
-    heart.style.animationDuration =
-      (6 +
-      Math.random() * 6) +
-      "s";
-
-
-    heart.style.animationDelay =
-      Math.random() * 5 +
-      "s";
-
-
-    background.appendChild(
-      heart
-    );
-
-  }
-
+const background=document.getElementById("background");
+if(background.children.length>0)return;
+const symbols=["💕","💖","✨","💗","⭐"];
+for(let i=0;i<20;i++){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(12+Math.random()*15)+"px";
+heart.style.animationDuration=(6+Math.random()*6)+"s";
+heart.style.animationDelay=Math.random()*5+"s";
+background.appendChild(heart);
 }
-
-
-/* =========================
-   حماية الصور من الأخطاء
-========================= */
-
-window.addEventListener(
-  "error",
-  function(event){
-
-    if(
-      event.target &&
-      event.target.tagName === "IMG"
-    ){
-
-      event.target.alt =
-        "تعذر تحميل الصورة";
-
-    }
-
-  },
-  true
-);
-
+}
 </script>
-
 </body>
 </html>
