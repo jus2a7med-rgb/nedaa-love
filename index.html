@@ -19,14 +19,39 @@ body{min-height:100vh;background:radial-gradient(circle at 50% 20%,#210c3d,#0b09
 .navigation{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px}.gallery{text-align:center}.photo{width:100%;max-width:320px;height:300px;object-fit:cover;border-radius:17px;border:2px solid var(--gold);box-shadow:0 0 25px rgba(255,183,3,.35);display:block;margin:0 auto 15px}.caption{color:#ffd166;line-height:1.7;margin-bottom:12px}  
 .song{padding:20px;border:2px solid var(--secondary);border-radius:17px;background:rgba(255,77,109,.08);margin-bottom:12px}.song h3{color:var(--gold)}.youtube{display:inline-block;background:#ff0000;color:white;text-decoration:none;padding:10px 20px;border-radius:25px;margin-top:15px;font-weight:bold}  
 .gift{font-size:90px;cursor:pointer;display:inline-block;margin:30px 0 10px;transition:.2s}.gift:active{transform:scale(.9)}.lovebar{height:12px;background:rgba(255,255,255,.1);border-radius:20px;overflow:hidden;margin:15px 0}.lovefill{width:0;height:100%;background:linear-gradient(90deg,#ff4d6d,#ffb703);transition:width 2s ease}  
-@media(max-width:500px){.container{padding:18px}.title{font-size:1.9rem}.number{font-size:1.1rem}.photo{height:270px}}  
-</style>  
+@media(max-width:500px){
+.container{padding:18px}
+.title{font-size:1.9rem}
+.number{font-size:1.1rem}
+.photo{height:270px}
+}
+
+#musicToggle{
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:100;
+width:50px;
+height:50px;
+border-radius:50%;
+border:1px solid rgba(255,255,255,.3);
+background:rgba(20,10,35,.85);
+color:white;
+font-size:1.3rem;
+cursor:pointer;
+box-shadow:0 0 15px rgba(255,77,109,.4);
+backdrop-filter:blur(10px);
+}
+
+</style>
 </head>  
 <body>  
 <div class="background" id="background"></div>  
-<audio id="backgroundMusic" loop preload="auto">  
-  <source src="music/Albumaty.Com_rashd_alfars__hza_alywm.mp3" type="audio/mpeg">  
-</audio>  
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="music/Albumaty.Com_rashd_alfars__hza_alywm.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicToggle" type="button">🎵</button>
 <div class="container">  
 <section class="step active" id="step1">  
 <h1 class="title">إلى نِداء قلبي.. 💕</h1>  
@@ -292,20 +317,38 @@ update();
 counterTimer=setInterval(update,1000);  
 }  
   
-function createHearts(){  
-const background=document.getElementById("background");  
-if(background.children.length>0)return;  
-const symbols=["💕","💖","✨","💗","⭐"];  
-for(let i=0;i<20;i++){  
-const heart=document.createElement("div");  
-heart.className="heart";  
-heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];  
-heart.style.left=Math.random()*100+"%";  
-heart.style.fontSize=(12+Math.random()*15)+"px";  
-heart.style.animationDuration=(6+Math.random()*6)+"s";  
-heart.style.animationDelay=Math.random()*5+"s";  
-background.appendChild(heart);  
-}  
-}  
-</script>  </body>  
+function createHearts(){
+  const background=document.getElementById("background");
+  if(background.children.length>0)return;
+  const symbols=["💕","💖","✨","💗","⭐"];
+  for(let i=0;i<20;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.left=Math.random()*100+"%";
+    heart.style.fontSize=(12+Math.random()*15)+"px";
+    heart.style.animationDuration=(6+Math.random()*6)+"s";
+    heart.style.animationDelay=Math.random()*5+"s";
+    background.appendChild(heart);
+  }
+}
+
+
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+musicToggle.addEventListener("click", function(){
+
+  if(music.paused){
+    music.play();
+    musicToggle.textContent = "🎵";
+  }else{
+    music.pause();
+    musicToggle.textContent = "🔇";
+  }
+
+});
+
+</script>
+</body>
 </html>
