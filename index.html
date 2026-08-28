@@ -31,7 +31,7 @@ position:fixed !important;
 bottom:20px !important;
 right:20px !important;
 z-index:99999 !important;
-display:block !important;
+display:none;
 visibility:visible !important;
 opacity:1 !important;
 width:60px;
@@ -140,15 +140,25 @@ const love=document.getElementById("love");
   
 startButton.addEventListener("click",startExperience);  
   
-function startExperience(){  
-step1.classList.remove("active");  
-step2.classList.add("active");  
-renderChapter();  
-startCounter();  
-createHearts();  
-  
-document.getElementById("backgroundMusic").play();  
-}  
+function startExperience(){
+
+  step1.classList.remove("active");
+  step2.classList.add("active");
+
+  renderChapter();
+  startCounter();
+  createHearts();
+
+  music.currentTime = 0;
+
+  music.play().then(() => {
+    musicToggle.style.display = "block";
+    musicToggle.textContent = "🎵";
+  }).catch(() => {
+    musicToggle.style.display = "block";
+    musicToggle.textContent = "🎵";
+  });
+}
   
 function renderChapter(){  
   
@@ -285,37 +295,73 @@ previousButton.addEventListener("click",function(){
 if(currentChapter>0){currentChapter--;renderChapter();}  
 });  
   
-gift.addEventListener("click",function(){  
-gift.textContent="🎉";  
-giftHint.style.display="none";  
-finalMessage.style.display="block";  
-setTimeout(()=>{love.style.width="100%";},100);  
-});  
-  
-restartButton.addEventListener("click",function(){  
-currentChapter=0;imageIndex=0;  
-step3.classList.remove("active");  
-step1.classList.add("active");  
-gift.textContent="🎁";  
-giftHint.style.display="block";  
-finalMessage.style.display="none";  
-love.style.width="0";  
-if(counterTimer){clearInterval(counterTimer);counterTimer=null;}  
-});  
-  
-function startCounter(){  
-if(counterTimer)clearInterval(counterTimer);  
-const start=new Date("2024-08-13T01:55:00");  
-function update(){  
-const diff=new Date()-start;  
-if(diff<0)return;  
-document.getElementById("days").textContent=Math.floor(diff/86400000);  
-document.getElementById("hours").textContent=Math.floor(diff/3600000)%24;  
-document.getElementById("minutes").textContent=Math.floor(diff/60000)%60;  
-document.getElementById("seconds").textContent=Math.floor(diff/1000)%60;  
-}  
-update();  
-counterTimer=setInterval(update,1000);  
+gift.addEventListener("click", function(){
+  gift.textContent = "🎉";
+  giftHint.style.display = "none";
+  finalMessage.style.display = "block";
+
+  setTimeout(() => {
+    love.style.width = "100%";
+  }, 100);
+});
+
+
+restartButton.addEventListener("click", function(){
+
+  currentChapter = 0;
+  imageIndex = 0;
+
+  step3.classList.remove("active");
+  step1.classList.add("active");
+
+  music.pause();
+  music.currentTime = 0;
+
+  musicToggle.style.display = "none";
+  musicToggle.textContent = "🎵";
+
+  gift.textContent = "🎁";
+  giftHint.style.display = "block";
+  finalMessage.style.display = "none";
+  love.style.width = "0%";
+
+  if(counterTimer){
+    clearInterval(counterTimer);
+    counterTimer = null;
+  }
+
+});
+
+
+function startCounter(){
+
+  if(counterTimer){
+    clearInterval(counterTimer);
+  }
+
+  const start = new Date("2024-08-13T01:55:00");
+
+  function update(){
+
+    const diff = new Date() - start;
+
+    if(diff < 0) return;
+
+    document.getElementById("days").textContent =
+      Math.floor(diff / 86400000);
+
+    document.getElementById("hours").textContent =
+      Math.floor(diff / 3600000) % 24;
+
+    document.getElementById("minutes").textContent =
+      Math.floor(diff / 60000) % 60;
+
+    document.getElementById("seconds").textContent =
+      Math.floor(diff / 1000) % 60;
+  }
+
+  update();
+  counterTimer = setInterval(update, 1000);
 }  
   
 function createHearts(){
