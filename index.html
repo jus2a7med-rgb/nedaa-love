@@ -131,31 +131,13 @@ function renderChapter(){
 const chapter=chapters[currentChapter];
 
 if(chapter==="gallery"){
-  story.innerHTML = `
-    <div class="gallery">
-      <h3 style="color:var(--gold);margin-bottom:15px">
-        معرض ذكرياتنا 💕
-      </h3>
-
-      <img
-        class="photo"
-        src="/images/IMG-20250108-WA0004.jpg"
-        alt="ذكرى">
-
-      <p class="caption">
-        اختبار ظهور الصورة الأولى 💕
-      </p>
-
-      <img
-        class="photo"
-        src="/images/IMG-20250616-WA0009.jpg"
-        alt="ذكرى">
-
-      <p class="caption">
-        اختبار ظهور الصورة الثانية ✨
-      </p>
-    </div>
-  `;
+story.innerHTML=`<div class="gallery">
+<h3 style="color:var(--gold);margin-bottom:15px">معرض ذكرياتنا 💕</h3>
+<img id="mainPhoto" class="photo" src="${images[imageIndex].url}" alt="ذكرى">
+<p class="caption" id="photoCaption">${images[imageIndex].caption}</p>
+<button class="btn secondary" id="nextPhoto" type="button">الصورة التالية 📸</button>
+<p style="color:#999;font-size:.85rem;margin-top:15px;line-height:1.7">أعتذر ولكن ليس لدي صور لك كثيراً، فقط هاتين الصورتين هما ما في جعبتي 🤍</p>
+</div>`;
 }
 document.getElementById("nextPhoto").addEventListener("click",nextPhoto);
 }
